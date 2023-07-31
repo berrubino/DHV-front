@@ -1,0 +1,21 @@
+.navbar.color {
+  background-color: #fe4236 !important;
+}
+
+.navbar-button {
+  color: black !important;
+  border: 2px solid black !important;
+}
+
+.btn.navbar-button:hover {
+  background-color: rgb(211, 69, 17);
+}
+
+.links-container {
+  display: flex;
+  justify-content: end;
+}
+
+.navbar-font {
+  color: #f7f3ee !important;
+}
