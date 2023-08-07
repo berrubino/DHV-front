@@ -1,5 +1,5 @@
 /* Estilos para el contenedor principal */
-.login-left-styles {
+.loginSignup-left-styles {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -8,7 +8,7 @@
 }
 
 /* Estilos para la imagen de fondo */
-.login-image-style {
+.loginSignup-image-style {
   position: absolute;
   top: 0;
   right: 0;
@@ -18,7 +18,7 @@
 }
 
 /* Estilos para el fondo de color */
-.login-left-styles::before {
+.loginSignup-left-styles::before {
   content: "";
   position: absolute;
   top: 0;
@@ -39,6 +39,7 @@
   box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
   z-index: 1; /* Asegura que la card esté adelante del fondo de color */
   position: relative; /* Añadimos position relative para posicionar el botón */
+  transition: transform 0.5s ease;
 }
 
 .login-card-top {
@@ -48,7 +49,7 @@
   position: relative; /* Añadimos position relative para posicionar el botón */
 }
 
-.fulllogo-style {
+.fullLogo-style {
   width: 70%;
   height: 60%;
   padding: 6%;
@@ -76,7 +77,6 @@
 
 .email-field {
   padding: 3%;
-  border-radius: 10px !important;
 }
 
 .password-field {
@@ -89,12 +89,6 @@
   &::placeholder {
     color: #123ac8 !important;
   }
-}
-
-.field-style {
-  border-radius: 25px !important;
-  border: 2px solid #123ac8 !important;
-  color: #123ac8 !important;
 }
 
 /* Estilos para el botón */
@@ -111,6 +105,10 @@
 }
 
 .change-password {
+  padding-left: 3%;
+}
+
+.signup-link {
   padding-left: 3%;
 }
 

@@ -1,0 +1,54 @@
+/* Estilos para la card */
+.signup-card {
+  margin: 20%;
+  background-color: white;
+  width: 60%;
+  height: 65%;
+  padding: px;
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1; /* Asegura que la card esté adelante del fondo de color */
+  position: relative; /* Añadimos position relative para posicionar el botón */
+}
+
+.signup-card-top {
+  display: flex; /* Alinea los elementos horizontalmente */
+  justify-content: space-between; /* Distribuye los elementos a lo largo del contenedor */
+  align-items: center; /* Centra verticalmente los elementos */
+  background-color: #fe4236;
+  height: 10%;
+  border: 3px solid #fe4236;
+  position: relative; /* Añadimos position relative para posicionar el botón */
+}
+
+.signup-logo-style {
+  margin: 2%;
+}
+
+.signup-form-container {
+  padding: 2%;
+}
+
+.signup-fields {
+  padding: 1%;
+}
+
+.signup-field-style {
+  border: 2px solid #123ac8 !important;
+  border-radius: 25px !important;
+  color: #123ac8 !important;
+  &::placeholder {
+    color: #123ac8 !important;
+  }
+}
+
+.signup-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-button {
+  background-color: #fe4236 !important;
+  border: 1px solid #fe4236 !important;
+  margin: 2%;
+}
