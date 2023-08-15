@@ -6,8 +6,27 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import loginImage from "../../assets/loginImage.jpg";
+import { login } from "../../services/login";
+import useInput from "../../hook/useInput";
 
 function Login() {
+  const email = useInput();
+  const password = useInput();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const loguedUser = {
+      email: email.value,
+      password: password.value,
+    };
+    try {
+      console.log("login", loguedUser);
+      await login(loguedUser);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="loginSignup-left-styles">
       <img
@@ -24,12 +43,14 @@ function Login() {
           </div>
         </div>
         <div>
-          <Form>
+          <Form onSubmit={handleLogin}>
             <Form.Group className="mb-3 email-field" controlId="formBasicEmail">
               <Form.Control
                 className="field-style"
                 type="email"
                 placeholder="EMAIL"
+                {...email}
+                onChange={email.onChange}
               />
             </Form.Group>
             <Form.Group
@@ -40,6 +61,8 @@ function Login() {
                 className="field-style"
                 type="password"
                 placeholder="PASSWORD"
+                {...password}
+                onChange={password.onChange}
               />
             </Form.Group>
 
