@@ -3,9 +3,42 @@ import Logo from "../../assets/Logo.svg";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import loginImage from "../../assets/loginImage.jpg";
 import "../Signup/signup.css";
-import axios from "axios";
+import useInput from "../../hook/useInput";
+import { signup } from "../../services/user/signup";
 
 function Signup() {
+  const name = useInput();
+  const lastname = useInput();
+  const password = useInput();
+  const validate_password = useInput();
+  const email = useInput();
+  const phone_number = useInput();
+  const address = useInput();
+  const city = useInput();
+  const state = useInput();
+  const zip_code = useInput();
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    try {
+      const user = {
+        name: name.value,
+        lastname: lastname.value,
+        password: password.value,
+        email: email.value,
+        phone_number: phone_number.value,
+        address: address.value,
+        city: city.value,
+        state: state.value,
+        zip_code: zip_code.value,
+      };
+      if (password.value === validate_password.value) {
+        await signup(user);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="loginSignup-left-styles">
       <img
@@ -19,7 +52,7 @@ function Signup() {
           <img className="signup-logo-style" src={Logo} alt="logo" />
         </div>
         <div className="signup-form-container">
-          <Form>
+          <Form onSubmit={handleSignup}>
             <Row className="mb-3">
               <Form.Group
                 as={Col}
@@ -30,6 +63,8 @@ function Signup() {
                   type="text"
                   placeholder="Name"
                   className="signup-field-style"
+                  {...name}
+                  onChange={name.onChange}
                 />
               </Form.Group>
 
@@ -42,6 +77,8 @@ function Signup() {
                   type="text"
                   placeholder="LastName"
                   className="signup-field-style"
+                  {...lastname}
+                  onChange={lastname.onChange}
                 />
               </Form.Group>
             </Row>
@@ -56,6 +93,8 @@ function Signup() {
                   type="password"
                   placeholder="Password"
                   className="signup-field-style"
+                  {...password}
+                  onChange={password.onChange}
                 />
               </Form.Group>
 
@@ -68,6 +107,8 @@ function Signup() {
                   type="password"
                   placeholder="Validate Password"
                   className="signup-field-style"
+                  {...validate_password}
+                  onChange={validate_password.onChange}
                 />
               </Form.Group>
             </Row>
@@ -82,6 +123,8 @@ function Signup() {
                   type="email"
                   placeholder="E-mail"
                   className="signup-field-style"
+                  {...email}
+                  onChange={email.onChange}
                 />
               </Form.Group>
 
@@ -94,6 +137,8 @@ function Signup() {
                   type="phone"
                   placeholder="Phone Number"
                   className="signup-field-style"
+                  {...phone_number}
+                  onChange={phone_number.onChange}
                 />
               </Form.Group>
             </Row>
@@ -102,6 +147,8 @@ function Signup() {
               <Form.Control
                 placeholder="Address(Apartment, studio, or floor)"
                 className="signup-field-style"
+                {...address}
+                onChange={address.onChange}
               />
             </Form.Group>
 
@@ -114,6 +161,8 @@ function Signup() {
                 <Form.Control
                   placeholder="City"
                   className="signup-field-style"
+                  {...city}
+                  onChange={city.onChange}
                 />
               </Form.Group>
 
@@ -122,13 +171,13 @@ function Signup() {
                 controlId="formGridState"
                 className="signup-fields"
               >
-                <Form.Select
-                  defaultValue="Choose..."
+                <Form.Control
+                  type="text"
+                  placeholder="State"
                   className="signup-field-style"
-                >
-                  <option>Choose State...</option>
-                  <option>...</option>
-                </Form.Select>
+                  {...state}
+                  onChange={state.onChange}
+                />
               </Form.Group>
 
               <Form.Group
@@ -139,6 +188,8 @@ function Signup() {
                 <Form.Control
                   placeholder="Zip Code"
                   className="signup-field-style"
+                  {...zip_code}
+                  onChange={zip_code.onChange}
                 />
               </Form.Group>
             </Row>
