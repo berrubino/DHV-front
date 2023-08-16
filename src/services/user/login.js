@@ -1,5 +1,5 @@
 import axios from "axios";
-import { back_route } from "../../config";
+import { back_route } from "../../../config";
 
 export const login = async ({ email, password }) => {
   try {

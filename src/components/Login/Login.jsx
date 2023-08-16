@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import loginImage from "../../assets/loginImage.jpg";
-import { login } from "../../services/login";
+import { login } from "../../services/user/login";
 import useInput from "../../hook/useInput";
 
 function Login() {
